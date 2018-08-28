@@ -9,8 +9,14 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
+            // Para el botón de menú cuando minimizamos la pantalla.
             $('.menu-barra').click(function(){
-                $('nav').toggleClass('active');
+                $('nav').toggleClass('active')
+            })
+            // Para las flechas desplegables del menú
+            $('ul li').click(function(){
+                $(this).siblings().removeClass('active');
+                $(this).toggleClass('active');                     
             })
         })
     </script>
@@ -21,9 +27,26 @@
        <nav>
            <ul>
                <li><a href="index.html" class="active">Inicio</a></li>
-               <li><a href="#">Productos</a></li>
+               <li><a href="#" class="sub-menu">Productos</a>
+                   <ul>
+                       <li><a href="#">Pendrives</a></li>
+                       <li><a href="#">Bolis</a></li>
+                       <li><a href="#">Lápices</a></li>
+                       <li><a href="#">Stickers</a></li>
+                       <li><a href="#">Notas</a></li>
+                       <li><a href="#">Borradores</a></li>
+                       <li><a href="#">Subrayadores</a></li>
+                       <li><a href="#">Libretas</a></li>
+                       <li><a href="#">Estuches</a></li>   
+                   </ul>
+                </li>
                <li><a href="#">Contacto</a></li>
-               <li><a href="#">Accesos</a></li>
+               <li><a href="#" class="sub-menu">Accesos</a>
+                   <ul>
+                       <li><a href="#">Login</a></li>
+                       <li><a href="#">Registro</a></li>
+                   </ul>
+                </li>
            </ul>
        </nav>
        <div class="menu-barra"><i><img src="img/iconoMenu.png" alt="icono-barra"></i></div>
