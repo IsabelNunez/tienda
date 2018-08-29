@@ -153,6 +153,7 @@ header nav ul li a.active {
     }
 }
 
+/* Slider */
 .slider {
     background-color: #00F;
     width: 100%;       
@@ -198,4 +199,57 @@ header nav ul li a.active {
     position: absolute;
     top: 175px; /* La mitad de la altura del slider para que queden centradas las flechas */
     right: 10px;
+}
+
+/* Main */
+.main {
+    max-width: 1340px;
+    width: 95%;
+    margin: 25px auto 20px auto;
+}
+
+.main .productos-main {
+    width: 24.4%;
+    background-color: deepskyblue;
+    float: left;
+    margin-left: 6.5px;
+    margin-top: 6.5px;
+    
+    -webkit-box-shadow: 1px 1px 4px 0px rgba(125,220,255,1);
+    -moz-box-shadow: 1px 1px 4px 0px rgba(125,220,255,1);
+    box-shadow: 1px 1px 4px 0px rgba(125,220,255,1);
+}
+
+.main .limpiar {
+    clear: both;
+}
+
+.main .productos-main .precio {
+    
+    margin: auto;
+    background-color: deepskyblue;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+@media screen and (max-width:1180px) {
+    
+    .main .productos-main {
+        width: 32.4%;
+    }
+}
+
+@media screen and (max-width:760px) {
+    
+    .main .productos-main {
+        width: 48.4%;
+    }
+}
+
+@media screen and (max-width:500px) {
+    
+    .main .productos-main {
+        width: 95%;
+    }
 }
