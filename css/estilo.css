@@ -33,6 +33,9 @@ header .logo {
 
 header nav {
     
+       
+    position: relative;
+    z-index: 999;
     float: right;
 }
 
@@ -55,7 +58,6 @@ header nav ul li .sub-menu:before {
     position: absolute;
     line-height: 53px; /* Altura para colocar la imagen */
     right: 8px; /* Espacio entre el texto y la flecha */
-    color: #fff;
 }
 
 header nav ul li.active .sub-menu:before {
@@ -150,9 +152,50 @@ header nav ul li a.active {
         width: 100%;
     }
 }
-/*
+
 .slider {
     background-color: #00F;
-    height: 400px;
-    margin-top: 10px;
-}*/
+    width: 100%;       
+    height: 350px;
+    margin-top: 50px;
+    position: relative;
+    display: flex; 
+    overflow: hidden;
+}
+
+.img-slider {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: all 1s;
+    opacity: 0;
+}
+
+#img1 {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.img-slider:target{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.img-slider .fondo{
+    width: 100%;
+    height: 100%;
+}
+
+.flechaIzq {
+    position: absolute;
+    top: 175px;
+    left: 10px;
+}
+
+.flechaDer {
+    position: absolute;
+    top: 175px; /* La mitad de la altura del slider para que queden centradas las flechas */
+    right: 10px;
+}
