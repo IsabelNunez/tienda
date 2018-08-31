@@ -39,7 +39,9 @@
    
    <!--Mensaje de alerta para cuando se ha añadido correctamente una categoria--> 
    <?php if(isset($_GET['validado'])){
-        if($_GET['validado']==1){ 
+        $validado=$_GET['validado'];
+        switch($validado){ 
+            case 1:
     ?> 
         <div id="alerta" class="alert alert-success alert-dismissible fade show" role="alert">
           <p class="texto-centrado"><strong>Bien!</strong> La categoria <strong><?php echo $_GET['alert'];?></strong> se ha añadido correctamente.</p>
@@ -47,14 +49,20 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-    <?php } else if($_GET['validado']==2){ ?>
+    <?php
+        break;
+        case 2:
+    ?>
         <div id="alerta" class="alert alert-danger alert-dismissible fade show" role="alert">
           <p class="texto-centrado"><strong>Error</strong>. No has añadido una categoria.</p>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-    <?php  } else if($_GET['validado']==3){ ?>
+    <?php  
+        break;    
+        case 3: 
+    ?>
         <div id="alerta" class="alert alert-danger alert-dismissible fade show" role="alert">
           <p class="texto-centrado"><strong>Error</strong>. La categoria <strong><?php echo $_GET['alert'];?></strong> ya existe.</p>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -62,7 +70,9 @@
           </button>
         </div>                 
        <?php 
-            } else if($_GET['validado']==4){ ?>
+            break;    
+            case 4:
+        ?>
         <div id="alerta" class="alert alert-success alert-dismissible fade show" role="alert">
             <p class="texto-centrado"><strong>Bien!</strong> La categoria <strong><?php echo utf8_encode($_GET['categoriavieja']);?></strong> se ha actualizado correctamente por <strong><?php echo utf8_encode($_GET['categorianueva']);?></strong>.</p>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -70,7 +80,9 @@
           </button>
         </div>        
         <?php
-            }else if($_GET['validado']==5){ ?>
+            break;
+            case 5: 
+        ?>
         <div id="alerta" class="alert alert-danger alert-dismissible fade show" role="alert">
             <p class="texto-centrado"><strong>Error</strong>. No has actualizado ninguna categoria. </p>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -78,8 +90,9 @@
           </button>
         </div>
         <?php 
+            break;
             }
-        }?>
+    }?>
     
     <div class="cont-formulario">
     <div class="add-categorias">
