@@ -13,11 +13,15 @@
     if(isset($_SESSION['administrador'])){
         echo "Hola " . $_SESSION['administrador'] . "<br><br>";
         
-        echo "<a href='categorias/formcategorias.php'>Añadir/modificar/eliminar Categorias</a>";
+        echo "<a href='categorias/formcategorias.php'>Añadir/modificar/eliminar Categorias</a>" . "<br><br>";
+        
+        echo "<a href='productos/formaddproductos.php'>Añadir/modificar/eliminar Productos</a>";
+        
+        
         
     }else {
 
-            header('location:index.html');
+            header('location:index.php');
             
     }
        

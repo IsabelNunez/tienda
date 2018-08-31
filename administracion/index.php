@@ -1,6 +1,12 @@
 <?php 
     session_start();
 ?>
+<?php 
+            include('../php/conexion.php');
+            $sql = "SELECT * FROM categorias ORDER BY categoria ASC";                                    
+            $registros=mysqli_query($GLOBALS['link'],$sql); 
+            cerrarconexion();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,21 +37,16 @@
 </head>
 <body>
    <header>
-       <div class="logo"><a href="../../index.php">LOGO</a></div>
+       <div class="logo"><a href="../index.php">LOGO</a></div>
        <nav>
            <ul>
                <li><a href="index.html" class="active">Inicio</a></li>
                <li><a href="#" class="sub-menu">Productos</a>
                    <ul>
-                       <li><a href="#">Pendrives</a></li>
-                       <li><a href="#">Bolis</a></li>
-                       <li><a href="#">Lápices</a></li>
-                       <li><a href="#">Stickers</a></li>
-                       <li><a href="#">Notas</a></li>
-                       <li><a href="#">Borradores</a></li>
-                       <li><a href="#">Subrayadores</a></li>
-                       <li><a href="#">Libretas</a></li>
-                       <li><a href="#">Estuches</a></li>   
+                       
+                      <?php while($fila=mysqli_fetch_array($registros)){ ?>
+                       <li><a href="#"><?php echo utf8_encode($fila['categoria']);?></a></li>
+                       <?php } ?>
                    </ul>
                 </li>
                <li><a href="#">Contacto</a></li>
@@ -57,7 +58,7 @@
                 </li>
            </ul>
        </nav>
-       <div class="menu-barra"><i><img src="../../img/iconoMenu.png" alt="icono-barra"></i></div>
+       <div class="menu-barra"><i><img src="../img/iconoMenu.png" alt="icono-barra"></i></div>
    </header>
        
     

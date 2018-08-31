@@ -48,7 +48,7 @@
                <li><a href="#">Contacto</a></li>
                <li><a href="#" class="sub-menu">Accesos</a>
                    <ul>
-                       <li><a href="administracion/index.html">Login</a></li>
+                       <li><a href="administracion/index.php">Login</a></li>
                        <li><a href="#">Registro</a></li>
                    </ul>
                 </li>
