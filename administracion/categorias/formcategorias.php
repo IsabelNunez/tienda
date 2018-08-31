@@ -28,6 +28,20 @@
                 $(this).toggleClass('active');                     
             })
         })
+        function eliminar(id){
+            
+            if(confirm("Se eliminará la categoria con todos los productos, ¿Confirma su eliminación?")){
+                
+                //location.href="eliminarcategorias.php?idcategoria="+id;
+                $.ajax({
+                    type:"POST",
+                    url:"eliminarcategorias.php",
+                    data:'idcategoria='+id,
+                });
+                
+                $("#"+id).hide("slow");
+            }
+        }
     </script>
 </head>
 <body>
@@ -124,10 +138,10 @@
         
         <?php while($fila=mysqli_fetch_array($registros)){ ?>
           <tbody>
-            <tr class="table-light">
+            <tr class="table-light" id=<?php echo $fila['id']; ?>>
               <td><?php echo utf8_encode($fila['categoria']);?></td>
               <td><a href="formmodificarcategorias.php?categoriavieja=<?php echo utf8_encode($fila['categoria']);?>"><button type="button" class="btn btn-success">Editar</button></a></td>
-              <td><a href="#"><button type="button" class="btn btn-danger">Eliminar</button></a></td>
+              <td><a onclick="eliminar('<?php echo $fila['id']; ?>')"><button type="button" class="btn btn-danger">Eliminar</button></a></td>
             </tr>
           </tbody>
         <?php
